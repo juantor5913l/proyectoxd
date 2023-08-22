@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Órdenes de Servicio</title>
+</head>
+<body>
+    <h1>Lista de Órdenes de Servicio</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Fecha de Órden de Servicio</th>
+            <th>Usuario</th>
+            <th>Acciones</th>
+        </tr>
+        {% for orden in ordenes %}
+        <tr>
+            <td>{{ orden.id }}</td>
+            <td>{{ orden.fecha_orden_servicio }}</td>
+            <td>{{ orden.usuario.nombre }} {{ orden.usuario.apellido }}</td>
+            <td>
+                <a href="/ordenes/editar/{{ orden.id }}">Editar</a>
+                <a href="/ordenes/eliminar/{{ orden.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/ordenes/agregar">Agregar Nueva Orden de Servicio</a>
+</body>
+</html>

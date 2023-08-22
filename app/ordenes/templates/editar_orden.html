@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Orden de Servicio</title>
+</head>
+<body>
+    <h1>Editar Orden de Servicio</h1>
+    <form method="POST" action="/ordenes/editar/{{ orden.id }}">
+        <label for="fecha_orden_servicio">Fecha de Órden de Servicio:</label>
+        <input type="date" id="fecha_orden_servicio" name="fecha_orden_servicio" value="{{ orden.fecha_orden_servicio }}" required><br>
+        <label for="usuario_id">Usuario:</label>
+        <select id="usuario_id" name="usuario_id" required>
+            {% for usuario in usuarios %}
+            <option value="{{ usuario.id }}" {% if usuario.id == orden.usuario.id %} selected {% endif %}>{{ usuario.nombre }} {{ usuario.apellido }}</option>
+            {% endfor %}
+        </select><br>
+        <!-- Puedes agregar otros campos aquí para los detalles de la orden de servicio -->
+        <input type="submit" value="Guardar Cambios">
+    </form>
+    <a href="/ordenes">Volver a la Lista de Órdenes de Servicio</a>
+</body>
+</html>

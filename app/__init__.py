@@ -11,18 +11,23 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
 
+
+#Importar el modulo 
+from app.materiales import materiales
+
 #crear el objeto flask
 app = Flask(__name__)
 
 #Configuracion del objeto flask
 app.config.from_object(Config)
 
-#crear el objeto de modelos:
-db =SQLAlchemy(app)
+#Vincular submodulos del proyecto
+app.register_blueprint(materiales)
 
+#crear el objeto de modelos:
+
+db=SQLAlchemy(app)
 #crear el obejeto de migracion 
 migrate=Migrate(app,db)
 
-#Importar los modelos
-
-from .models import Cliente,Venta,Detalle,Producto
+from .models import RolUsuario,Usuario,Material,Cotizacion,OrdenServicio

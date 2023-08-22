@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Materiales</title>
+</head>
+<body>
+    <h1>Lista de Materiales</h1>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Cantidad en Stock</th>
+            <th>Unidad de Medida</th>
+            <th>Color</th>
+            <th>Acciones</th>
+        </tr>
+        {% for material in materiales %}
+        <tr>
+            <td>{{ material.nombre_material }}</td>
+            <td>{{ material.descripcion }}</td>
+            <td>{{ material.precio }}</td>
+            <td>{{ material.cantidad_stock }}</td>
+            <td>{{ material.unidad_medida }}</td>
+            <td>{{ material.color }}</td>
+            <td>
+                <a href="/materiales/editar/{{ material.id }}">Editar</a>
+                <a href="/materiales/eliminar/{{ material.id }}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/materiales/agregar">Agregar Nuevo Material</a>
+</body>
+</html>

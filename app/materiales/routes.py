@@ -24,7 +24,7 @@ def agregar_material():
         
         app.db.session.add(material)
         app.db.session.commit()
-        return redirect('/materiales/materiales')
+        return redirect('/materiales/listar')
     
     return render_template('agregar_material.html')
 
@@ -42,7 +42,7 @@ def editar_material(id):
         material.color = request.form['color']
         app.db.session.commit()
         
-        return redirect('/materiales/materiales')
+        return redirect('/materiales/listar')
     
     return render_template('editar_material.html', material=material)
 
@@ -55,5 +55,5 @@ def eliminar_material(id):
         app.db.session.delete(material)
         app.db.session.commit()
     
-    return redirect('/materiales/materiales')
+    return redirect('/materiales/listar')
 

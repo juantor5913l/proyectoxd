@@ -24,11 +24,12 @@ app.config.from_object(Config)
 #Importar el modulo 
 from app.materiales import materiales_blueprint
 from app.ordenes import ordenes_blueprint
+from app.index import index_blueprint
 
 #Vincular submodulos del proyecto
 app.register_blueprint(materiales_blueprint)
 app.register_blueprint(ordenes_blueprint)
-
+app.register_blueprint(index_blueprint)
 #crear el objeto de modelos:
 
 db=SQLAlchemy(app)

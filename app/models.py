@@ -1,4 +1,4 @@
-from . import db #El punto se reconoce como el archivo "__init__.py" igual el app
+from app import db #El punto se reconoce como el archivo "__init__.py" igual el app
 
 #dependencia para fecha y hora
 from datetime import datetime
@@ -10,9 +10,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 # Crear una instancia de Base
 
-
-# Modelo para los roles de usuario
-from . import db #El punto se reconoce como el archivo "__init__.py" igual el app
 
 #dependencia para fecha y hora
 from datetime import datetime
@@ -40,6 +37,7 @@ class Usuario(db.Model):
     id = Column(Integer, primary_key=True)
     nombre = Column(String(255))
     apellido = Column(String(255))
+    telefono = Column(String(10))
     correo_electronico = Column(String(255))
     direccion = Column(String(255))
     rol_id = Column(Integer)
@@ -70,13 +68,9 @@ class Cotizacion(db.Model):
 
     id = Column(Integer, primary_key=True)
     fecha_cotizacion = Column(Date)
-    nombre = Column(String(255))
-    apellido = Column(String(255))
-    direccion = Column(String(255))
+    descripcion = Column(String(255))
     usuario_id = Column(Integer, ForeignKey('usuario.id'))
     # Puedes agregar otros campos aquí para los detalles de la cotización
-
-
 
 # Modelo para órdenes de servicio
 class OrdenServicio(db.Model):
@@ -84,6 +78,14 @@ class OrdenServicio(db.Model):
 
     id = Column(Integer, primary_key=True)
     fecha_orden_servicio = Column(Date)
-    apellido = Column(String(255))
-    nombre = Column(String(255))
+    usuario_id = Column(Integer, ForeignKey('usuario.id'))
+
+
+    
+
+class Catalogo(db.Model):
+    __tablename__ = 'catalogos'
+
+    id = Column(Integer, primary_key=True)
+    nombre_catalogo = Column(String(255))
     usuario_id = Column(Integer, ForeignKey('usuario.id'))

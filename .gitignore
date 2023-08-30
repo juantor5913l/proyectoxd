@@ -1,4 +1,6 @@
 __pycache__/*
-torres/*
+prueba/*
 migrations/*
 app/__pycache__/*
+app/materiales/__pycache__/*
+app/ordenes/__pycache__/*

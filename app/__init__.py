@@ -12,8 +12,6 @@ from flask_migrate import Migrate
 
 
 
-#Importar el modulo 
-from app.materiales import materiales
 
 #crear el objeto flask
 app = Flask(__name__)
@@ -21,8 +19,15 @@ app = Flask(__name__)
 #Configuracion del objeto flask
 app.config.from_object(Config)
 
+
+
+#Importar el modulo 
+from app.materiales import materiales_blueprint
+from app.ordenes import ordenes_blueprint
+
 #Vincular submodulos del proyecto
-app.register_blueprint(materiales)
+app.register_blueprint(materiales_blueprint)
+app.register_blueprint(ordenes_blueprint)
 
 #crear el objeto de modelos:
 

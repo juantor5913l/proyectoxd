@@ -11,12 +11,11 @@
         <label for="usuario_id">Usuario:</label>
         <select id="usuario_id" name="usuario_id" required>
             {% for usuario in usuarios %}
-            <option value="{{ usuario.id }}" {% if usuario.id == orden.usuario.id %} selected {% endif %}>{{ usuario.nombre }} {{ usuario.apellido }}</option>
+            <option value="{{ usuario.id }}" {% if usuario.id == orden.usuario_id %} selected {% endif %}>{{ usuario.nombre }} {{ usuario.apellido }}</option>
             {% endfor %}
         </select><br>
-        <!-- Puedes agregar otros campos aquí para los detalles de la orden de servicio -->
         <input type="submit" value="Guardar Cambios">
     </form>
-    <a href="/ordenes">Volver a la Lista de Órdenes de Servicio</a>
+    <a href="/ordenes/listar">Volver a la Lista de Órdenes de Servicio</a>
 </body>
 </html>

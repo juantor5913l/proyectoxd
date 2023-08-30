@@ -2,6 +2,6 @@
 from flask import Blueprint
 
 #Definir paquete de productos
-ordenes = Blueprint ('ordenes', __name__, url_prefix ='/ordenes', template_folder = 'templates')
+ordenes_blueprint = Blueprint ('ordenes_blueprint', __name__, url_prefix ='/ordenes', template_folder = 'templates')
 
 from . import routes

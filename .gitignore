@@ -1,5 +1,5 @@
 __pycache__/*
-prueba/*
+venv/*
 migrations/*
 app/__pycache__/*
 app/materiales/__pycache__/*
